@@ -5,7 +5,8 @@ El objetivo del PoC que hemos desarrollado es integrar un modelo de Machine Lear
 ## Recolección de Datos:
 
  - detect_files.py: Este script se encarga de recolectar información sobre los commits en el repositorio de Git. Extrae datos de inserciones y eliminaciones de cada commit mediante comandos de Git, almacenando estos datos en matrices que se utilizan para entrenar el modelo.
-Entrenamiento del Modelo:
+
+## Entrenamiento del Modelo:
 
 Los datos recolectados se utilizan para entrenar un clasificador (en este caso, un árbol de decisión de scikit-learn) que puede predecir si un nuevo cambio es importante o no.
 
