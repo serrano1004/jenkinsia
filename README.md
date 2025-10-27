@@ -6,11 +6,13 @@
 
 ## 📝 Descripción
 
-El objetivo del PoC que hemos desarrollado es integrar un modelo de Machine Learning en un pipeline de CI/CD utilizando Jenkins. Este modelo tiene como finalidad predecir la importancia de los cambios (commits) realizados en un repositorio de código, basándose en las inserciones y eliminaciones que estos contienen.
+integrar un modelo de Machine Learning en un pipeline de CI/CD utilizando Jenkins
 
 ## 🚀 Características
 
-- ## Recolección de Datos:: - detect_files.py: Este script se encarga de recolectar información sobre los commits en el repositorio de Git. Extrae datos de
+- Análisis de datos automatizado
+- Modelos de machine learning
+- Procesamiento eficiente de datos
 
 ## 📋 Requisitos Previos
 
@@ -29,11 +31,6 @@ pip install -r requirements.txt
 ```
 
 ## 🎯 Uso
-
-### Uso Básico
-```bash
-python detect_files.py
-```
 
 ### Pipeline de Jenkins
 El pipeline se ejecuta automáticamente con cada commit y utiliza el modelo ML para evaluar la importancia de los cambios.
