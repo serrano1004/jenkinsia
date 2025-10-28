@@ -46,6 +46,26 @@ pip install -e .
 cp .env.example .env
 # Editar .env con tu configuración
 ```
+### Requisitos Previos
+
+- Python 3.8+ instalado
+
+### Pasos de Instalación
+
+```bash
+# 1. Clonar el repositorio
+git clone <repository-url>
+cd jenkinsia
+
+# 2. Instalar dependencias
+```bash
+pip install -e .
+```
+
+# 3. Configuración inicial (si es necesario)
+cp .env.example .env
+# Editar .env con tu configuración
+```
 ### Opción 1: Instalación estándar
 ```bash
 git clone <repository-url>
