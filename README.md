@@ -8,6 +8,11 @@
 
 El objetivo del PoC que hemos desarrollado es integrar un modelo de Machine Learning en un pipeline de CI/CD utilizando Jenkins. Este modelo tiene como finalidad predecir la importancia de los cambios (commits) realizados en un repositorio de código, basándose en las inserciones y eliminaciones que estos contienen.
 
+
+## 🛠️ Tecnologías
+
+- 🐍 Python
+
 ## 🚀 Características
 
 - ## Recolección de Datos:: - detect_files.py: Este script se encarga de recolectar información sobre los commits en el repositorio de Git. Extrae datos de
@@ -21,6 +26,26 @@ El objetivo del PoC que hemos desarrollado es integrar un modelo de Machine Lear
 
 ## 🛠️ Instalación
 
+### Requisitos Previos
+
+- Python 3.8+ instalado
+
+### Pasos de Instalación
+
+```bash
+# 1. Clonar el repositorio
+git clone <repository-url>
+cd jenkinsia
+
+# 2. Instalar dependencias
+```bash
+pip install -e .
+```
+
+# 3. Configuración inicial (si es necesario)
+cp .env.example .env
+# Editar .env con tu configuración
+```
 ### Opción 1: Instalación estándar
 ```bash
 git clone <repository-url>
