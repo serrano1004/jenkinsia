@@ -1,38 +1,21 @@
 ```markdown
 # Guía Completa de Instalación - jenkinsia
 
-Esta guía proporciona instrucciones detalladas para instalar y configurar jenkinsia en diferentes sistemas operativos. Incluye requisitos previos, pasos de instalación, pruebas de verificación, configuración avanzada y solución de problemas comunes.
+Esta guía detalla paso a paso el proceso de instalación de jenkinsia en diferentes sistemas operativos (Linux, macOS y Windows). Incluye instrucciones para la instalación de dependencias, configuración inicial, pruebas de verificación y solución de problemas comunes.
 
 **Tabla de Contenidos**
 
 *   [Requisitos Previos](#requisitos-previos)
-    *   [Windows](#windows)
-    *   [macOS](#macos)
     *   [Linux](#linux)
+    *   [macOS](#macos)
+    *   [Windows](#windows)
 *   [Instalación Paso a Paso](#instalación-paso-a-paso)
-    *   [Paso 1: Clonar el Repositorio](#paso-1-clonar-el-repositorio)
-    *   [Paso 2: Crear y Activar un Entorno Virtual (venv)](#paso-2-crear-y-activar-un-entorno-virtual-venv)
-    *   [Paso 3: Instalar Dependencias](#paso-3-instalar-dependencias)
-    *   [Paso 4: Configuración Inicial](#paso-4-configuración-inicial)
-    *   [Paso 5: Verificación de Instalación](#paso-5-verificación-de-instalación)
 *   [Tests de Verificación Completa](#tests-de-verificación-completa)
-    *   [Test 1: Verificar la Versión de jenkinsia](#test-1-verificar-la-versión-de-jenkinsia)
-    *   [Test 2: Ejecutar un Comando Básico](#test-2-ejecutar-un-comando-básico)
-    *   [Test 3: Ejecutar un Script de Diagnóstico (Opcional)](#test-3-ejecutar-un-script-de-diagnóstico-opcional)
 *   [Configuración Avanzada](#configuración-avanzada)
-    *   [5.1 Usar en Diferentes Ubicaciones (Añadir al PATH)](#51-usar-en-diferentes-ubicaciones-añadir-al-path)
-    *   [5.2 Integración con IDEs](#52-integración-con-ides)
-        *   [Visual Studio Code](#visual-studio-code)
-        *   [PyCharm](#pycharm)
-    *   [5.3 Entorno de Producción](#53-entorno-de-producción)
-    *   [5.4 Usar con Docker](#54-usar-con-docker)
+    *   [Usar en Diferentes Ubicaciones](#usar-en-diferentes-ubicaciones)
+    *   [Integración con IDEs](#integración-con-ides)
+    *   [Entorno de Producción](#entorno-de-producción)
 *   [🐛 Solución de Problemas](#-solución-de-problemas)
-    *   [Problema 1: Error de Versión de Python](#problema-1-error-de-versión-de-python)
-    *   [Problema 2: Permiso Denegado](#problema-2-permiso-denegado)
-    *   [Problema 3: Módulo/Paquete No Encontrado](#problema-3-módulopaquete-no-encontrado)
-    *   [Problema 4: Problema de Conexión de Red](#problema-4-problema-de-conexión-de-red)
-    *   [Problema 5: Error al Crear el Entorno Virtual](#problema-5-error-al-crear-el-entorno-virtual)
-    *   [Problema 6: Error al Ejecutar jenkinsia](#problema-6-error-al-ejecutar-jenkinsia)
 *   [Configuración de Entorno Virtual](#configuración-de-entorno-virtual)
 *   [Próximos Pasos Después de la Instalación](#próximos-pasos-después-de-la-instalación)
 *   [Tips y Mejores Prácticas](#tips-y-mejores-prácticas)
@@ -40,292 +23,277 @@ Esta guía proporciona instrucciones detalladas para instalar y configurar jenki
 
 ## Requisitos Previos
 
-Antes de comenzar con la instalación de jenkinsia, asegúrate de cumplir con los siguientes requisitos previos según tu sistema operativo.
+### Linux
 
-### Windows
+**a) Requisitos de Sistema**
 
-a) **Requisitos de Sistema**
-
-*   Versión mínima del SO: Windows 10
-*   RAM recomendada: 4 GB
-*   Espacio en disco: 500 MB
+*   Versión mínima del SO: Cualquier distribución Linux moderna (Ubuntu 18.04+, Debian 10+, Fedora 30+)
+*   RAM recomendada: 2 GB
+*   Espacio en disco: 200 MB
 *   Conexión a Internet: Necesaria para descargar dependencias.
 
-b) **Software Requerido**
+**b) Software Requerido**
 
 *   **Python:**
-    *   Versión mínima requerida: Python 3.7
-    *   Cómo instalar: Descargar el instalador desde [python.org](https://www.python.org/downloads/windows/) y ejecutarlo. Asegúrate de marcar la casilla "Add Python to PATH" durante la instalación.
-    *   Comando de verificación: `python --version` o `python3 --version` en la terminal (cmd o PowerShell).
-    *   Qué hacer si no está disponible: Reinstala Python asegurándote de agregarla al PATH.
+    *   Versión mínima requerida: 3.7
+    *   Cómo instalar:
+        ```bash
+        sudo apt update
+        sudo apt install python3 python3-pip
+        ```
+        *Para otras distribuciones, usar el gestor de paquetes correspondiente (yum, dnf, etc.)*
+    *   Comando de verificación:
+        ```bash
+        python3 --version
+        ```
+    *   Qué hacer si no está disponible: Instalar Python 3 usando el gestor de paquetes de la distribución.
+
 *   **pip:**
-    *   Versión mínima requerida: Incluida con Python 3.
-    *   Cómo instalar: Generalmente viene instalado con Python.  Si no, ejecuta `python -m ensurepip --default-pip`
-    *   Comando de verificación: `pip --version` o `pip3 --version` en la terminal.
-    *   Qué hacer si no está disponible: Reinstala Python o ejecuta el comando anterior.
+    *   Versión mínima requerida: 20.0
+    *   Cómo instalar:
+        ```bash
+        sudo apt update
+        sudo apt install python3-pip
+        ```
+    *   Comando de verificación:
+        ```bash
+        pip3 --version
+        ```
+    *   Qué hacer si no está disponible: Reinstalar `python3-pip`.
 
-c) **Herramientas Opcionales**
+**c) Herramientas Opcionales**
 
-*   **Visual Studio Code:** Un editor de código recomendado para el desarrollo en Python. Se puede descargar desde [code.visualstudio.com](https://code.visualstudio.com/).
-*   **Git:** Para clonar el repositorio de jenkinsia.  Se puede descargar desde [git-scm.com](https://git-scm.com/).
+*   **virtualenv:** Para crear entornos virtuales aislados.
+    *   Para qué sirve: Aislar las dependencias del proyecto de las del sistema.
+    *   Cómo instalar:
+        ```bash
+        pip3 install virtualenv
+        ```
+*   **git:** Para clonar el repositorio.
+    *   Para qué sirve: Para obtener el código fuente del proyecto.
+    *   Cómo instalar:
+        ```bash
+        sudo apt install git
+        ```
 
 ### macOS
 
-a) **Requisitos de Sistema**
+**a) Requisitos de Sistema**
 
 *   Versión mínima del SO: macOS 10.14 (Mojave)
-*   RAM recomendada: 4 GB
-*   Espacio en disco: 500 MB
+*   RAM recomendada: 2 GB
+*   Espacio en disco: 200 MB
 *   Conexión a Internet: Necesaria para descargar dependencias.
 
-b) **Software Requerido**
+**b) Software Requerido**
 
 *   **Python:**
-    *   Versión mínima requerida: Python 3.7
-    *   Cómo instalar: Se recomienda usar Homebrew (`brew install python3`). Si no tienes Homebrew, instálalo desde [brew.sh](https://brew.sh/). Alternativamente, puedes descargar el instalador desde [python.org](https://www.python.org/downloads/macos/).
-    *   Comando de verificación: `python3 --version` en la terminal.
-    *   Qué hacer si no está disponible: Instala Python usando Homebrew o el instalador.
+    *   Versión mínima requerida: 3.7
+    *   Cómo instalar:
+        *   Opción 1: Usar Homebrew:
+            ```bash
+            brew install python3
+            ```
+        *   Opción 2: Descargar el instalador desde [python.org](https://www.python.org/downloads/macos/)
+    *   Comando de verificación:
+        ```bash
+        python3 --version
+        ```
+    *   Qué hacer si no está disponible: Instalar Python 3 usando Homebrew o el instalador de python.org.
+
 *   **pip:**
-    *   Versión mínima requerida: Incluida con Python 3.
-    *   Cómo instalar: Generalmente viene instalado con Python. Si no, ejecuta `python3 -m ensurepip`
-    *   Comando de verificación: `pip3 --version` en la terminal.
-    *   Qué hacer si no está disponible: Reinstala Python o ejecuta el comando anterior.
+    *   Versión mínima requerida: 20.0
+    *   Cómo instalar:
+        *   Se instala automáticamente con Python 3. Si no está, ejecutar:
+            ```bash
+            python3 -m ensurepip
+            ```
+    *   Comando de verificación:
+        ```bash
+        pip3 --version
+        ```
+    *   Qué hacer si no está disponible: Ejecutar `python3 -m ensurepip`.
 
-c) **Herramientas Opcionales**
+**c) Herramientas Opcionales**
 
-*   **Visual Studio Code:** Un editor de código recomendado para el desarrollo en Python. Se puede descargar desde [code.visualstudio.com](https://code.visualstudio.com/).
-*   **Git:** Para clonar el repositorio de jenkinsia. Generalmente viene preinstalado en macOS. Si no, puedes instalarlo con `brew install git`.
+*   **virtualenv:** Para crear entornos virtuales aislados.
+    *   Para qué sirve: Aislar las dependencias del proyecto de las del sistema.
+    *   Cómo instalar:
+        ```bash
+        pip3 install virtualenv
+        ```
+*   **git:** Para clonar el repositorio.
+    *   Para qué sirve: Para obtener el código fuente del proyecto.
+    *   Cómo instalar:
+        ```bash
+        brew install git
+        ```
 
-### Linux
+### Windows
 
-a) **Requisitos de Sistema**
+**a) Requisitos de Sistema**
 
-*   Versión mínima del SO: Ubuntu 18.04, Debian 10, CentOS 7
-*   RAM recomendada: 4 GB
-*   Espacio en disco: 500 MB
+*   Versión mínima del SO: Windows 10
+*   RAM recomendada: 2 GB
+*   Espacio en disco: 200 MB
 *   Conexión a Internet: Necesaria para descargar dependencias.
 
-b) **Software Requerido**
+**b) Software Requerido**
 
 *   **Python:**
-    *   Versión mínima requerida: Python 3.7
-    *   Cómo instalar: Depende de la distribución.
-        *   **Ubuntu/Debian:** `sudo apt update && sudo apt install python3 python3-pip`
-        *   **CentOS/RHEL:** `sudo yum install python3 python3-pip`
-    *   Comando de verificación: `python3 --version` en la terminal.
-    *   Qué hacer si no está disponible: Instala Python usando el gestor de paquetes de tu distribución.
+    *   Versión mínima requerida: 3.7
+    *   Cómo instalar:
+        *   Descargar el instalador desde [python.org](https://www.python.org/downloads/windows/)
+        *   **IMPORTANTE:** Marcar la casilla "Add Python to PATH" durante la instalación.
+    *   Comando de verificación:
+        ```powershell
+        python --version
+        ```
+    *   Qué hacer si no está disponible: Reinstalar Python y asegurarse de marcar "Add Python to PATH".
+
 *   **pip:**
-    *   Versión mínima requerida: Incluida con Python 3.
-    *   Cómo instalar: Usualmente instalado con Python. Si no, usa el gestor de paquetes de tu distribución (ver comandos arriba).
-    *   Comando de verificación: `pip3 --version` en la terminal.
-    *   Qué hacer si no está disponible: Reinstala Python o el paquete `python3-pip`.
+    *   Versión mínima requerida: 20.0
+    *   Cómo instalar:
+        *   Se instala automáticamente con Python 3. Si no está, ejecutar:
+            ```powershell
+            python -m ensurepip --upgrade
+            ```
+    *   Comando de verificación:
+        ```powershell
+        pip --version
+        ```
+    *   Qué hacer si no está disponible: Ejecutar `python -m ensurepip --upgrade`.
 
-c) **Herramientas Opcionales**
+**c) Herramientas Opcionales**
 
-*   **Visual Studio Code:** Un editor de código recomendado para el desarrollo en Python. Se puede descargar desde [code.visualstudio.com](https://code.visualstudio.com/).
-*   **Git:** Para clonar el repositorio de jenkinsia.  Generalmente viene preinstalado. Si no, instala con `sudo apt install git` (Ubuntu/Debian) o `sudo yum install git` (CentOS/RHEL).
+*   **virtualenv:** Para crear entornos virtuales aislados.
+    *   Para qué sirve: Aislar las dependencias del proyecto de las del sistema.
+    *   Cómo instalar:
+        ```powershell
+        pip install virtualenv
+        ```
+*   **git:** Para clonar el repositorio.
+    *   Para qué sirve: Para obtener el código fuente del proyecto.
+    *   Cómo instalar:
+        *   Descargar e instalar desde [git-scm.com](https://git-scm.com/download/win)
 
 ## Instalación Paso a Paso
 
-Sigue estos pasos para instalar jenkinsia en tu sistema.
+**Paso 1: Clonar el Repositorio**
 
-### Paso 1: Clonar el Repositorio
-
-Clona el repositorio de jenkinsia desde GitHub usando el siguiente comando:
-
-```bash
-git clone https://github.com/serrano1004/jenkinsia.git
-```
-
-**Qué esperar:**
-
-El comando clonará el repositorio de jenkinsia en tu directorio actual. Verás un mensaje indicando el progreso de la clonación.
-
-**Cómo verificar el éxito:**
-
-Navega al directorio recién creado `jenkinsia` con `cd jenkinsia`. Si el directorio existe y contiene los archivos del proyecto, la clonación fue exitosa.
-
-### Paso 2: Crear y Activar un Entorno Virtual (venv)
-
-Es altamente recomendable crear un entorno virtual para aislar las dependencias del proyecto.
-
-```bash
-python3 -m venv venv  # Crea el entorno virtual
-```
-
-**Activar el entorno virtual:**
-
-*   **Windows:**
-
+*   Comando:
     ```bash
-    venv\Scripts\activate
+    git clone https://github.com/serrano1004/jenkinsia.git
     ```
+*   Qué esperar: Se descargará el código fuente del proyecto a una carpeta llamada `jenkinsia`.
+*   Cómo verificar éxito: Verificar que se ha creado la carpeta `jenkinsia` y que contiene los archivos del proyecto.
 
-*   **macOS/Linux:**
+**Paso 2: Crear y Activar un Entorno Virtual (Recomendado)**
 
+*   Comando:
     ```bash
-    source venv/bin/activate
+    python3 -m venv venv
     ```
+    (En Windows, usar `python -m venv venv`)
 
-**Qué esperar:**
+*   Qué esperar: Se creará una carpeta llamada `venv` que contiene el entorno virtual.
+*   Activar el entorno virtual:
+    *   Linux/macOS:
+        ```bash
+        source venv/bin/activate
+        ```
+    *   Windows:
+        ```powershell
+        .\venv\Scripts\activate
+        ```
+*   Cómo verificar éxito: El prompt de la terminal debería cambiar para indicar que el entorno virtual está activado (e.g., `(venv) $`).
 
-Después de activar el entorno virtual, verás `(venv)` al principio de tu línea de comandos, indicando que el entorno virtual está activo.
+**Paso 3: Instalar Dependencias**
 
-### Paso 3: Instalar Dependencias
+*   Comando:
+    ```bash
+    pip install -r requirements.txt
+    ```
+*   Tiempo estimado: Depende de la velocidad de la conexión a Internet, pero generalmente toma menos de un minuto.
+*   Qué hace: Instala todas las bibliotecas y paquetes listados en el archivo `requirements.txt`.
+*   Cómo verificar éxito: No deberían aparecer errores durante la instalación.
 
-Instala las dependencias del proyecto usando `pip`.
+**Paso 4: Configuración Inicial (Si Aplica)**
 
-```bash
-pip3 install -r requirements.txt
-```
+*   Este proyecto no requiere una configuración inicial compleja.  Si hay variables de entorno o archivos de configuración específicos, se detallarán aquí.  Por el momento, se asume que no hay configuración manual necesaria para empezar.
 
-**Qué esperar:**
+**Paso 5: Verificación de Instalación**
 
-Este comando instalará todas las dependencias listadas en el archivo `requirements.txt`.  Verás una serie de mensajes indicando la descarga e instalación de cada paquete.
-
-**Tiempo estimado:**
-
-Dependiendo de tu conexión a Internet y la cantidad de dependencias, este proceso puede tardar varios minutos.
-
-**Qué hace:**
-
-Este comando lee el archivo `requirements.txt` y utiliza `pip` para descargar e instalar las versiones especificadas de cada paquete Python requerido por jenkinsia.
-
-### Paso 4: Configuración Inicial
-
-jenkinsia puede requerir ciertas variables de entorno o archivos de configuración.  Consulta la documentación específica del proyecto (README.md) para obtener detalles sobre la configuración inicial necesaria.  Por ejemplo, si necesita una clave API:
-
-```bash
-export JENKINSIA_API_KEY="tu_clave_api"  # Ejemplo, adapta a las variables reales
-```
-
-**Valores por defecto:**
-
-La documentación debe indicar los valores por defecto si no se configuran las variables de entorno.
-
-### Paso 5: Verificación de Instalación
-
-Verifica que la instalación se haya completado correctamente ejecutando un comando básico de jenkinsia.  Consulta el README.md para ejemplos.  Asumiendo que jenkinsia tiene un comando `--version`:
-
-```bash
-python3 jenkinsia.py --version  # Adapta al comando real del proyecto
-```
-
-**Salida esperada:**
-
-Deberías ver la versión de jenkinsia impresa en la terminal.  Por ejemplo: `jenkinsia v1.0.0`
-
-**Qué hacer si falla:**
-
-Si el comando falla, revisa los pasos anteriores, especialmente la instalación de dependencias y la activación del entorno virtual. Consulta la sección de solución de problemas.
+*   Comando (Ejemplo, adaptar al proyecto):
+    ```bash
+    python3 jenkinsia/main.py --version # Reemplazar con el comando real
+    ```
+*   Salida esperada: Debería mostrar la versión del proyecto. Por ejemplo: `jenkinsia v1.0.0`
+*   Qué hacer si falla: Verificar que todas las dependencias están instaladas correctamente y que el entorno virtual está activado (si se usa).
 
 ## Tests de Verificación Completa
 
-Realiza estas pruebas para verificar que jenkinsia está funcionando correctamente.
+**Test 1: Verificar Componentes**
 
-### Test 1: Verificar la Versión de jenkinsia
+*   Comando para ejecutar (Ejemplo, adaptar al proyecto):
+    ```bash
+    python3 -c "import jenkinsia; print(jenkinsia.__version__)"
+    ```
+*   Qué debería mostrar: La versión del paquete `jenkinsia`.
+*   Qué hacer si falla: Asegurarse de que el paquete `jenkinsia` está instalado en el entorno virtual correcto.
 
-Ejecuta el comando para mostrar la versión de jenkinsia:
+**Test 2: Verificar Funcionalidad Básica**
 
-```bash
-python3 jenkinsia.py --version  # Adapta al comando real del proyecto
-```
+*   Ejemplo de uso (Ejemplo, adaptar al proyecto):
+    ```bash
+    python3 jenkinsia/main.py --help  # Reemplazar con el comando real
+    ```
+*   Salida esperada: Debería mostrar la ayuda del programa.
+*   Qué hacer si falla: Verificar que el archivo `main.py` existe y que es ejecutable.
 
-**Qué debería mostrar:**
+**Test 3: Diagnóstico Completo (Opcional)**
 
-La versión instalada de jenkinsia (ej: `jenkinsia v1.0.0`).
-
-**Qué hacer si falla:**
-
-Si no se muestra la versión o se produce un error, verifica que jenkinsia esté correctamente instalado y que el entorno virtual esté activo.
-
-### Test 2: Ejecutar un Comando Básico
-
-Ejecuta un comando básico de jenkinsia para verificar su funcionalidad.  Asumiendo que jenkinsia tiene un comando `help`:
-
-```bash
-python3 jenkinsia.py help  # Adapta al comando real del proyecto
-```
-
-**Salida esperada:**
-
-Deberías ver una lista de comandos disponibles y su descripción.
-
-### Test 3: Ejecutar un Script de Diagnóstico (Opcional)
-
-Si jenkinsia proporciona un script de diagnóstico, ejecútalo para verificar la configuración y dependencias. (Ejemplo hipotético)
-
-```bash
-python3 jenkinsia_diagnostics.py
-```
-
-**Qué verifica:**
-
-Este script podría verificar la versión de Python, la presencia de dependencias, la configuración de variables de entorno, etc.
-
-**Cómo interpretar resultados:**
-
-El script debe imprimir un resumen de los resultados, indicando si alguna verificación falló. Consulta la documentación del proyecto para más detalles sobre el script de diagnóstico.
+*   Este proyecto no incluye un script de diagnóstico específico.  Si fuera necesario, se crearía un script que verifique la integridad de la instalación, las dependencias y la configuración.
 
 ## Configuración Avanzada
 
-### 5.1 Usar en Diferentes Ubicaciones (Añadir al PATH)
+### 5.1 Usar en Diferentes Ubicaciones
 
-Para ejecutar jenkinsia desde cualquier ubicación en tu sistema, puedes añadir el directorio de instalación al PATH.
-
-*   **Linux/macOS:**
-
-    Edita el archivo `~/.bashrc` o `~/.zshrc` y añade la siguiente línea (reemplaza `/path/to/jenkinsia` con la ruta real):
-
-    ```bash
-    export PATH="$PATH:/path/to/jenkinsia"
-    ```
-
-    Luego, ejecuta `source ~/.bashrc` o `source ~/.zshrc` para aplicar los cambios.
-
-*   **Windows:**
-
-    1.  Busca "Editar las variables de entorno del sistema" en el menú de inicio.
-    2.  Haz clic en "Variables de entorno".
-    3.  En "Variables del sistema", busca la variable "Path" y haz clic en "Editar".
-    4.  Haz clic en "Nuevo" y añade la ruta al directorio de jenkinsia.
-    5.  Cierra y vuelve a abrir la terminal para aplicar los cambios.
+*   **Agregar a PATH del sistema:**  Si se desea ejecutar `jenkinsia` desde cualquier ubicación, la carpeta que contiene el script principal debe agregarse al PATH del sistema.  Esto varía según el sistema operativo.
+    *   Linux/macOS:  Editar el archivo `.bashrc` o `.zshrc` y agregar la línea `export PATH=$PATH:/path/to/jenkinsia`.
+    *   Windows:  Buscar "Editar las variables de entorno del sistema" en el menú de inicio y agregar la ruta a la variable `Path`.
+*   **Crear alias:**  Se puede crear un alias para simplificar la ejecución del script.  Por ejemplo, agregar `alias jenkinsia="python3 /path/to/jenkinsia/main.py"` al archivo `.bashrc` o `.zshrc`.
 
 ### 5.2 Integración con IDEs
 
-#### Visual Studio Code
-
-*   **Extensiones recomendadas:** Python (por Microsoft).
-*   **Configuración en `settings.json`:**
-
-    ```json
-    {
-        "python.pythonPath": "/path/to/your/venv/bin/python3", // Reemplaza con la ruta correcta
-        "python.linting.pylintEnabled": true,
-        "python.formatting.provider": "autopep8"
-    }
-    ```
-
-*   **Debug setup:** Crea un archivo `.vscode/launch.json` para configurar el depurador.
-
-#### PyCharm
-
-*   **Interpreter/SDK configuration:** Configura el intérprete de Python para que apunte al entorno virtual creado para jenkinsia.
-*   **Run configurations:** Crea configuraciones de ejecución para ejecutar y depurar jenkinsia.
+*   **Visual Studio Code:**
+    *   Extensiones recomendadas: Python (ms-python.python).
+    *   Configuración en `settings.json`:
+        ```json
+        {
+            "python.pythonPath": "/path/to/venv/bin/python" // Adjust path
+        }
+        ```
+    *   Debug setup: Crear un archivo `.vscode/launch.json` para configurar la depuración.
+*   **PyCharm / WebStorm:**
+    *   Interpreter/SDK configuration: Configurar el intérprete de Python para que apunte al entorno virtual.
+    *   Run configurations: Crear configuraciones de ejecución para ejecutar y depurar el script.
 
 ### 5.3 Entorno de Producción
 
-*   **Diferencias con desarrollo:** En producción, asegúrate de usar un servidor web (ej: Gunicorn, uWSGI) en lugar de ejecutar jenkinsia directamente.
-*   **Checklist de configuración:**
-    *   Configurar un usuario dedicado para ejecutar jenkinsia.
-    *   Asegurarse de que jenkinsia tenga los permisos necesarios para acceder a los recursos que necesita.
-    *   Configurar logging adecuado.
-    *   Implementar medidas de seguridad (ej: firewall, HTTPS).
-*   **Consideraciones de seguridad:** Evita almacenar información sensible (ej: contraseñas, claves API) directamente en el código. Utiliza variables de entorno o un sistema de gestión de secretos.
+*   Diferencias con desarrollo: En producción, se debe asegurar que el código esté optimizado, las dependencias estén fijas y la seguridad esté reforzada.
+*   Checklist de configuración:
+    *   Configurar un servidor web (e.g., Nginx, Apache) para servir la aplicación.
+    *   Usar un sistema de gestión de procesos (e.g., systemd, Supervisor) para mantener la aplicación en ejecución.
+    *   Configurar logging y monitoreo.
+*   Consideraciones de seguridad:
+    *   Usar HTTPS.
+    *   Validar las entradas del usuario.
+    *   Proteger las credenciales y la información sensible.
 
-### 5.4 Usar con Docker
+### 5.4 Usar con Docker (si aplica)
 
-Un `Dockerfile` básico podría ser:
+*   Este proyecto no proporciona un Dockerfile por defecto.  Sin embargo, se puede crear uno fácilmente.  Aquí hay un ejemplo básico:
 
 ```dockerfile
 FROM python:3.9-slim-buster
@@ -333,35 +301,76 @@ FROM python:3.9-slim-buster
 WORKDIR /app
 
 COPY requirements.txt .
-RUN pip3 install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["python3", "jenkinsia.py", "tu_comando"] # Adapta al comando real
+CMD ["python3", "jenkinsia/main.py"] # Reemplazar con el comando real
 ```
 
-Y un ejemplo de `docker-compose.yml`:
-
-```yaml
-version: "3.8"
-services:
-  jenkinsia:
-    build: .
-    ports:
-      - "8000:8000"  # Adapta los puertos si es necesario
-    environment:
-      JENKINSIA_API_KEY: ${JENKINSIA_API_KEY}
-```
-
-Para construir y ejecutar:
+*   Para construir y ejecutar el contenedor:
 
 ```bash
-docker-compose build
-docker-compose up
+docker build -t jenkinsia .
+docker run jenkinsia
 ```
 
 ## 🐛 Solución de Problemas
 
-Aquí hay algunos problemas comunes que pueden ocurrir durante la instalación y cómo solucionarlos.
+**Problema 1: Error de versión de Python**
 
-#### Problema 1: Error de Versión
+*   Síntomas: `python: command not found` o un error que indica que la versión de Python es incorrecta.
+*   Causa probable: Python no está instalado o la variable de entorno PATH no está configurada correctamente.
+*   Solución:
+    1.  Verificar que Python esté instalado usando `python --version` o `python3 --version`.
+    2.  Si no está instalado, instalar la versión requerida (3.7 o superior).
+    3.  Asegurarse de que la carpeta de instalación de Python está en la variable de entorno PATH.
+*   Comando de diagnóstico: `python --version` o `python3 --version`.
+*   Si sigue fallando: Reinstalar Python asegurándose de que la opción "Add Python to PATH" esté marcada durante la instalación (en Windows).
+
+**Problema 2: Permiso denegado**
+
+*   Síntomas: `Permission denied` al ejecutar un script.
+*   Causa probable: El usuario no tiene permisos para ejecutar el script.
+*   Solución:
+    1.  Dar permisos de ejecución al script usando `chmod +x <script>`.
+    2.  Asegurarse de que el script está siendo ejecutado por un usuario con los permisos necesarios.
+*   Comando de diagnóstico: `ls -l <script>`.
+*   Si sigue fallando: Ejecutar el script como administrador (usando `sudo` en Linux/macOS o "Ejecutar como administrador" en Windows).
+
+**Problema 3: Módulo/paquete no encontrado**
+
+*   Síntomas: `ModuleNotFoundError` o `ImportError`.
+*   Causa probable: El módulo o paquete no está instalado o no está instalado en el entorno virtual correcto.
+*   Solución:
+    1.  Asegurarse de que el entorno virtual está activado (si se usa).
+    2.  Instalar el módulo o paquete usando `pip install <paquete>`.
+*   Comando de diagnóstico: `pip list` para listar los paquetes instalados.
+*   Si sigue fallando: Verificar que el nombre del paquete es correcto y que está disponible en PyPI.
+
+**Problema 4: Problema de conexión de red**
+
+*   Síntomas: Errores al descargar dependencias o al conectar a un servidor remoto.
+*   Causa probable: Problemas de conexión a Internet, configuración de proxy incorrecta o firewall bloqueando la conexión.
+*   Solución:
+    1.  Verificar la conexión a Internet.
+    2.  Configurar el proxy si es necesario (usando las variables de entorno `http_proxy` y `https_proxy`).
+    3.  Desactivar temporalmente el firewall para ver si está bloqueando la conexión.
+*   Comando de diagnóstico: `ping google.com` o `curl google.com`.
+*   Si sigue fallando: Contactar al administrador de la red.
+
+**Problema 5: Conflicto de puertos**
+
+*   Síntomas: Error al iniciar un servidor que indica que el puerto está en uso.
+*   Causa probable: Otro programa está usando el mismo puerto.
+*   Solución:
+    1.  Identificar el programa que está usando el puerto usando `netstat -anp` (Linux) o `netstat -ano` (Windows).
+    2.  Cerrar el programa que está usando el puerto o cambiar el puerto que está usando el programa.
+*   Comando de diagnóstico: `netstat -anp` (Linux) o `netstat -ano` (Windows).
+*   Si sigue fallando: Cambiar el puerto que está usando la aplicación.
+
+**Problema 6: Error al clonar el repositorio**
+
+*   Síntomas: `fatal: could not read Username for 'https://github.com': No such device or address` o errores similares.
+*   Causa probable: Problemas con la configuración de Git, credenciales incorrectas o problemas de conexión.
+*   Solución:
