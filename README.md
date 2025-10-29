@@ -1,247 +1,191 @@
 ```markdown
 # jenkinsia
 
-Una aplicación Python para simplificar la gestión de pipelines en Jenkins.
+Una aplicación Python simple para demostrar la integración continua.
 
 [![CI/CD Status](https://github.com/serrano1004/jenkinsia/actions/workflows/main.yml/badge.svg)](https://github.com/serrano1004/jenkinsia/actions/workflows/main.yml)
 [![Language](https://img.shields.io/badge/language-Python-blue.svg)](https://www.python.org)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Status](https://img.shields.io/badge/status-stable-brightgreen.svg)](https://github.com/serrano1004/jenkinsia)
+[![Status](https://img.shields.io/badge/status-stable-brightgreen.svg)](https://img.shields.io/badge/status-stable-brightgreen.svg)
 
 ## Descripción General
 
-Jenkinsia es una aplicación Python diseñada para facilitar la interacción con servidores Jenkins.  Su objetivo principal es simplificar la creación, gestión y monitorización de pipelines de integración continua y entrega continua (CI/CD). Proporciona una interfaz de línea de comandos (CLI) intuitiva y fácil de usar que permite a los usuarios realizar tareas comunes en Jenkins sin necesidad de navegar por la interfaz web.
+jenkinsia es una aplicación Python diseñada para ilustrar y facilitar la comprensión de los procesos de integración continua (CI) y entrega continua (CD).  Este proyecto sirve como un ejemplo práctico y sencillo para desarrolladores que buscan implementar o mejorar sus flujos de trabajo de CI/CD.
 
-Esta herramienta surge de la necesidad de automatizar y agilizar las tareas repetitivas asociadas con la gestión de Jenkins.  Muchos desarrolladores y equipos de operaciones dedican una cantidad significativa de tiempo a configurar y mantener pipelines en Jenkins, lo que puede ser propenso a errores y consumir mucho tiempo. Jenkinsia busca reducir esta carga de trabajo al proporcionar una forma sencilla y eficiente de interactuar con Jenkins desde la línea de comandos.
+La aplicación está construida con Python y se enfoca en demostrar cómo se pueden automatizar las pruebas, la construcción y el despliegue de software.  El objetivo principal es proporcionar un punto de partida accesible para aquellos que son nuevos en CI/CD, permitiéndoles experimentar y aprender de forma práctica.
 
-El problema que resuelve Jenkinsia es la complejidad inherente a la gestión de pipelines en Jenkins, especialmente para aquellos que no están familiarizados con la interfaz web o que prefieren trabajar desde la línea de comandos.  Al proporcionar una herramienta CLI intuitiva, Jenkinsia permite a los usuarios realizar tareas como crear trabajos, disparar builds, obtener información sobre el estado de los builds y gestionar plugins de forma rápida y sencilla. La audiencia objetivo de Jenkinsia son desarrolladores, ingenieros de DevOps y administradores de sistemas que utilizan Jenkins para la automatización de sus procesos de CI/CD.
+Este proyecto resuelve el problema de la complejidad inicial asociada con la configuración de pipelines de CI/CD.  Al ofrecer un ejemplo concreto y fácil de entender, jenkinsia reduce la barrera de entrada y permite a los usuarios enfocarse en los principios fundamentales de la automatización del desarrollo de software. La audiencia objetivo son desarrolladores de software, estudiantes de informática y profesionales de DevOps que buscan comprender y aplicar los conceptos de CI/CD en sus proyectos.
 
 ## Características Clave
 
-*   🚀 **Creación de Trabajos:** Define y crea trabajos de Jenkins mediante archivos de configuración YAML.
-*   ⚙️ **Gestión de Pipelines:** Inicia, detiene y monitoriza pipelines de Jenkins con comandos sencillos.
-*   📊 **Información de Builds:** Obtén información detallada sobre el estado de los builds, incluyendo logs y resultados de pruebas.
-*   🔌 **Gestión de Plugins:** Instala, desinstala y actualiza plugins de Jenkins desde la línea de comandos.
-*   🛡️ **Autenticación Segura:** Soporte para múltiples métodos de autenticación, incluyendo tokens de API y credenciales.
-*   📜 **Configuración Flexible:** Personaliza Jenkinsia mediante archivos de configuración y variables de entorno.
-*   🔎 **Búsqueda Inteligente:** Encuentra trabajos y plugins rápidamente mediante la funcionalidad de búsqueda integrada.
-*   📦 **Empaquetado y Distribución:** Disponible como paquete PyPI para una fácil instalación y actualización.
-*   🤝 **Integración Continua:** Diseñado para integrarse perfectamente con otros sistemas y herramientas de CI/CD.
+*   🚀 **Integración Continua:** Automatiza las pruebas y la construcción del proyecto en cada commit.
+*   🧪 **Pruebas Unitarias:** Incluye pruebas unitarias para garantizar la calidad del código.
+*   📦 **Empaquetado:** Demuestra cómo empaquetar la aplicación para su distribución.
+*   ☁️ **Despliegue:** Proporciona un ejemplo básico de despliegue en un entorno simulado.
+*   🐍 **Código Limpio:**  Escrito en Python con buenas prácticas de codificación.
+*   📜 **Fácil de Entender:**  Documentación clara y concisa para facilitar el aprendizaje.
+*   🔧 **Configurable:**  Permite personalizar el comportamiento de la aplicación mediante variables de entorno.
+*   ✅ **Verificación:**  Incluye scripts para verificar la correcta instalación y funcionamiento de la aplicación.
 
 ## Requisitos Previos
 
-Para utilizar Jenkinsia, necesitarás lo siguiente:
-
-*   **Sistema Operativo:** Linux, macOS o Windows.
+*   **Sistema Operativo:** Compatible con Linux, macOS y Windows.
 *   **Python:** Versión 3.7 o superior.
-*   **Jenkins:** Un servidor Jenkins en funcionamiento (versión 2.0 o superior recomendada).
-*   **Pip:** El gestor de paquetes de Python.
-*   **Acceso a la API de Jenkins:** Asegúrate de tener acceso a la API de Jenkins con las credenciales necesarias.
-
-Es recomendable utilizar un entorno virtual de Python para aislar las dependencias del proyecto.
+*   **Pip:** Gestor de paquetes de Python (normalmente incluido con Python).
+*   **Git:** Para clonar el repositorio.
+*   **Entorno Virtual:** Recomendado para aislar las dependencias del proyecto.
 
 ## Instalación Rápida
 
-1.  **Clona el repositorio:**
+1.  Clona el repositorio:
 
     ```bash
     git clone https://github.com/serrano1004/jenkinsia.git
     cd jenkinsia
     ```
 
-2.  **Crea un entorno virtual (opcional pero recomendado):**
+2.  Crea un entorno virtual (opcional pero recomendado):
 
     ```bash
     python3 -m venv venv
     source venv/bin/activate  # En Linux/macOS
-    # venv\Scripts\activate  # En Windows
+    venv\Scripts\activate  # En Windows
     ```
 
-3.  **Instala Jenkinsia:**
+3.  Instala las dependencias:
 
     ```bash
-    pip install .
+    pip install -r requirements.txt
     ```
 
-4.  **Verifica la instalación:**
+4.  Verifica la instalación:
 
     ```bash
-    jenkinsia --version
+    python jenkinsia.py --version
     ```
 
-Para obtener instrucciones de instalación más detalladas, consulta el archivo [INSTALL.md](INSTALL.md).
+Para una instalación más detallada, consulta el archivo [INSTALL.md](INSTALL.md).
 
 ## Guía Rápida de Uso
 
-Este ejemplo muestra cómo obtener información sobre un trabajo específico en Jenkins:
+El script principal `jenkinsia.py` tiene una funcionalidad básica. Aquí hay un ejemplo de cómo usarlo:
 
-1.  **Configura las credenciales de Jenkins:**
+```bash
+python jenkinsia.py --greet "Mundo"
+```
 
-    Puedes configurar las credenciales de Jenkins mediante variables de entorno:
+Salida esperada:
 
-    ```bash
-    export JENKINS_URL="http://tu-servidor-jenkins:8080"
-    export JENKINS_USERNAME="tu_usuario"
-    export JENKINS_PASSWORD="tu_contraseña"
-    ```
+```
+Hola, Mundo!
+```
 
-2.  **Ejecuta el comando para obtener información del trabajo:**
-
-    ```bash
-    jenkinsia job info mi_trabajo
-    ```
-
-3.  **Salida esperada:**
-
-    ```
-    Nombre: mi_trabajo
-    URL: http://tu-servidor-jenkins:8080/job/mi_trabajo/
-    Estado: SUCCESS
-    Último build: #123
-    ```
-
-Este es un caso de uso común para obtener rápidamente información sobre el estado de un trabajo.
+Este comando ejecuta la aplicación y muestra un saludo personalizado. Un caso de uso común sería integrarlo en un pipeline de CI/CD para realizar pruebas automatizadas y generar informes.
 
 ## Arquitectura del Proyecto
 
 ```
-+-----------------+      +-----------------+      +-----------------+
-|  Interfaz CLI   |----->|  Lógica Central |----->|  Servidor Jenkins|
-+-----------------+      +-----------------+      +-----------------+
-        |                 |         |          |
-        |                 |         |          |  API REST
-        |                 |         |          |
-        v                 v         v          v
-+-----------------+      +-----------------+      +-----------------+
-|  Entrada Usuario|      |  Procesamiento  |      |  Datos Jenkins  |
-+-----------------+      +-----------------+      +-----------------+
++-------------------+     +---------------------+     +-----------------------+
+|  Código Fuente    | --> |  Pruebas Unitarias  | --> |  Empaquetado/Entrega  |
+| (jenkinsia.py)    |     |  (tests/test_*.py)  |     |  (setup.py, etc.)     |
++-------------------+     +---------------------+     +-----------------------+
+        |                     |                         |
+        |                     |                         |
+        V                     V                         V
++-------------------+     +---------------------+     +-----------------------+
+|  Control de Versión|     |  Entorno de Pruebas |     |  Entorno de Producción|
+|  (Git)            |     |  (pytest)           |     |  (Servidor, etc.)     |
++-------------------+     +---------------------+     +-----------------------+
 ```
 
-*   **Interfaz CLI:** Proporciona la interfaz de línea de comandos para interactuar con Jenkinsia.  Recibe los comandos del usuario y los pasa a la lógica central. (Python)
-*   **Lógica Central:** Contiene la lógica principal de la aplicación, incluyendo la gestión de la configuración, la autenticación y la comunicación con el servidor Jenkins. (Python)
-*   **Servidor Jenkins:** El servidor Jenkins al que se conecta Jenkinsia para realizar las operaciones solicitadas. (Java)
-*   **Entrada Usuario:** Representa la entrada del usuario a través de la CLI.
-*   **Procesamiento:** La lógica de negocio que transforma la entrada del usuario en acciones sobre el servidor Jenkins.
-*   **Datos Jenkins:** La información que reside en el servidor Jenkins y que es accedida y manipulada por Jenkinsia.
+El flujo de datos principal comienza con el código fuente, que se somete a pruebas unitarias. Si las pruebas son exitosas, el código se empaqueta y se entrega a un entorno de producción.
 
-El flujo de datos principal es el siguiente: el usuario introduce un comando en la CLI, la CLI pasa el comando a la lógica central, la lógica central se comunica con el servidor Jenkins a través de la API REST, el servidor Jenkins procesa la solicitud y devuelve una respuesta, la lógica central procesa la respuesta y la muestra al usuario a través de la CLI.
+*   **jenkinsia.py:** El archivo principal que contiene la lógica de la aplicación.
+*   **tests/:**  Directorio que contiene las pruebas unitarias.
+*   **setup.py:**  Archivo utilizado para empaquetar y distribuir la aplicación.
 
 ## Detalles Técnicos
 
-Jenkinsia utiliza la biblioteca `requests` de Python para comunicarse con la API REST de Jenkins. Se ha elegido esta biblioteca por su facilidad de uso y su amplia compatibilidad.  Las decisiones arquitectónicas se basan en la necesidad de mantener la aplicación simple, modular y fácil de mantener. Se ha utilizado un diseño orientado a objetos para facilitar la reutilización del código y la extensibilidad.
-
-El patrón principal utilizado es el patrón Fachada, donde la lógica central actúa como una fachada que simplifica la interacción con la API de Jenkins.
-
-Las dependencias críticas incluyen `requests` para la comunicación HTTP y `PyYAML` para la gestión de archivos de configuración YAML.  `Requests` se eligió por su simplicidad y madurez, mientras que `PyYAML` se eligió por su capacidad para leer y escribir archivos YAML de forma sencilla.
-
-Jenkinsia está diseñado para ser eficiente y consumir pocos recursos. Los requisitos de rendimiento se centran en minimizar el tiempo de respuesta de la CLI y reducir el consumo de memoria.
+Este proyecto utiliza el patrón de diseño "saludo personalizado" como un ejemplo sencillo. Las decisiones arquitectónicas se basan en la simplicidad y la facilidad de comprensión. Se eligió pytest como framework de pruebas debido a su sintaxis clara y su facilidad de uso. No hay requisitos de rendimiento críticos para esta aplicación, pero se ha optimizado para una ejecución rápida y eficiente.
 
 ## Ejemplos de Uso
 
-1.  **Crear un trabajo desde un archivo YAML:**
-
-    Crea un archivo llamado `job.yaml` con la siguiente configuración:
-
-    ```yaml
-    name: mi_nuevo_trabajo
-    description: Este es un trabajo de prueba
-    builders:
-      - shell: echo "¡Hola, mundo!"
-    ```
-
-    Luego, ejecuta el siguiente comando:
+1.  **Ejecutar las pruebas unitarias:**
 
     ```bash
-    jenkinsia job create job.yaml
+    pytest tests/
     ```
 
     Salida esperada:
 
     ```
-    Trabajo 'mi_nuevo_trabajo' creado exitosamente.
+    ============================= test session starts ==============================
+    platform linux -- Python 3.8.10, pytest-7.1.2, pluggy-1.0.0
+    rootdir: /path/to/jenkinsia
+    collected 1 item
+
+    tests/test_jenkinsia.py .                                              [100%]
+
+    ============================== 1 passed in 0.01s ==============================
     ```
 
-2.  **Disparar un build de un trabajo existente:**
+2.  **Mostrar la versión de la aplicación:**
 
     ```bash
-    jenkinsia job build mi_trabajo
+    python jenkinsia.py --version
     ```
 
     Salida esperada:
 
     ```
-    Build disparado para el trabajo 'mi_trabajo'.
+    jenkinsia v1.0.0
     ```
 
-3.  **Obtener los logs de un build específico:**
+3.  **Ejecutar la aplicación con un nombre diferente:**
 
     ```bash
-    jenkinsia build logs mi_trabajo 123
+    python jenkinsia.py --greet "Usuario"
     ```
 
     Salida esperada:
 
     ```
-    [INFO] Ejecutando el build #123
-    [INFO] ¡Hola, mundo!
-    [INFO] Build finalizado con éxito.
+    Hola, Usuario!
     ```
 
 ## Configuración
 
-Jenkinsia se puede configurar mediante variables de entorno y archivos de configuración.
-
-*   **Variables de Entorno:**
-    *   `JENKINS_URL`: La URL del servidor Jenkins.
-    *   `JENKINS_USERNAME`: El nombre de usuario para autenticarse en Jenkins.
-    *   `JENKINS_PASSWORD`: La contraseña para autenticarse en Jenkins.
-    *   `JENKINS_TOKEN`: El token de API para autenticarse en Jenkins (alternativo a usuario/contraseña).
-
-*   **Archivos de Configuración:**
-
-    Puedes crear un archivo de configuración llamado `config.yaml` en el directorio de inicio del usuario para personalizar el comportamiento de Jenkinsia.
-
-    Para obtener más detalles sobre las opciones de configuración, consulta la documentación completa.
+Las variables de entorno importantes se pueden configurar en el archivo `.env` (no incluido en este ejemplo, pero se puede crear). Un ejemplo de variable de entorno podría ser `LOG_LEVEL` para controlar el nivel de registro. Las opciones de personalización se pueden encontrar en el archivo `jenkinsia.py`. Para más detalles sobre la configuración, consulta la documentación interna del código.
 
 ## Troubleshooting Común
 
-1.  **Error de autenticación:**
+1.  **Error de importación:**
 
-    *   Causa probable: Credenciales incorrectas o falta de permisos en Jenkins.
-    *   Solución: Verifica las credenciales y asegúrate de que el usuario tiene los permisos necesarios para acceder a la API de Jenkins.
-    *   Comando de diagnóstico: `jenkinsia --debug job info mi_trabajo`
+    *   Causa probable: No se han instalado las dependencias.
+    *   Solución: Ejecuta `pip install -r requirements.txt`.
+    *   Comando de diagnóstico: `pip list` para verificar las dependencias instaladas.
 
-2.  **Error de conexión:**
+2.  **Las pruebas fallan:**
 
-    *   Causa probable: El servidor Jenkins no está accesible o la URL es incorrecta.
-    *   Solución: Verifica que el servidor Jenkins está en funcionamiento y que la URL es correcta.
-    *   Comando de diagnóstico: `ping tu-servidor-jenkins`
+    *   Causa probable: Error en el código o configuración incorrecta.
+    *   Solución: Revisa el código y la configuración de las pruebas.
+    *   Comando de diagnóstico: `pytest -v tests/` para ver los resultados detallados de las pruebas.
 
-3.  **Error de plugin:**
+3.  **La aplicación no se ejecuta:**
 
-    *   Causa probable: El plugin no está instalado o está desactualizado.
-    *   Solución: Instala o actualiza el plugin en el servidor Jenkins.
-    *   Comando de diagnóstico: `jenkinsia plugin info mi_plugin`
+    *   Causa probable: Error en la sintaxis o en la lógica del código.
+    *   Solución: Revisa el código en busca de errores.
+    *   Comando de diagnóstico: Ejecuta la aplicación con el flag `-d` para obtener información de depuración (si está implementado).
 
 ## Contribuciones
 
-¡Las contribuciones son bienvenidas! Si encuentras un bug, tienes una sugerencia o quieres contribuir con código, por favor, sigue estos pasos:
-
-1.  Reporta bugs mediante las [issues de GitHub](https://github.com/serrano1004/jenkinsia/issues).
-2.  Sugiere nuevas funcionalidades mediante las [issues de GitHub](https://github.com/serrano1004/jenkinsia/issues).
-3.  Consulta el archivo [CONTRIBUTING.md](CONTRIBUTING.md) para obtener más información sobre cómo contribuir con código.
-
-Por favor, respeta el [Código de Conducta](CODE_OF_CONDUCT.md) al participar en la comunidad.
+Si encuentras un bug, por favor, repórtalo a través de las [issues de GitHub](https://github.com/serrano1004/jenkinsia/issues). Si deseas sugerir una nueva característica, crea una nueva issue con la etiqueta "feature request". Consulta el archivo [CONTRIBUTING.md](CONTRIBUTING.md) para obtener más información sobre cómo contribuir. Por favor, respeta el [Código de Conducta](CODE_OF_CONDUCT.md).
 
 ## Licencia y Créditos
 
-Este proyecto está licenciado bajo la [Licencia MIT](LICENSE).
-
-Agradecemos a la comunidad de código abierto por su inspiración y apoyo.
+Este proyecto está licenciado bajo la [Licencia MIT](LICENSE). Agradecimientos a la comunidad de Python por su apoyo y recursos. Inspirado en ejemplos de CI/CD de la documentación oficial de Jenkins.
 
 ## Contacto y Soporte
 
-*   Email de contacto: [tu_email@example.com](mailto:tu_email@example.com)
-*   Issues en GitHub: [https://github.com/serrano1004/jenkinsia/issues](https://github.com/serrano1004/jenkinsia/issues)
-*   Documentación adicional: [https://github.com/serrano1004/jenkinsia/wiki](https://github.com/serrano1004/jenkinsia/wiki)
+Para cualquier pregunta o problema, puedes contactarme a través de las [issues de GitHub](https://github.com/serrano1004/jenkinsia/issues) o enviando un correo electrónico a [tu_email@example.com](mailto:tu_email@example.com). Documentación adicional disponible en [la wiki del proyecto](https://github.com/serrano1004/jenkinsia/wiki).
 ```
