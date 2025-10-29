@@ -1,203 +1,197 @@
 ```markdown
 # SECURITY.md
 
-La seguridad es de suma importancia para el proyecto {project_name}. Nos tomamos en serio la seguridad de nuestros usuarios y colaboradores.
+La seguridad es una prioridad en el proyecto {project_name}. Este documento describe nuestras prácticas de seguridad, cómo reportar vulnerabilidades de manera responsable y otra información importante relacionada con la seguridad.
 
-Este documento describe nuestras políticas y procedimientos para manejar vulnerabilidades de seguridad, así como las mejores prácticas para desarrollar y mantener un código seguro.
+Este documento cubre las políticas de seguridad para el proyecto {project_name}, incluyendo cómo reportar vulnerabilidades, las prácticas de seguridad que seguimos, y las vulnerabilidades conocidas y mitigaciones.
 
 ## Reportar Vulnerabilidades de Seguridad
 
-Si cree haber encontrado una vulnerabilidad de seguridad en {project_name}, le rogamos que nos la comunique de forma responsable. **Por favor, NO cree un issue público en el repositorio.** Esto podría exponer la vulnerabilidad a usuarios malintencionados antes de que tengamos la oportunidad de corregirla.
+Creemos que la seguridad de {project_name} es importante y agradecemos la ayuda de la comunidad para identificar y resolver vulnerabilidades. Si descubre una vulnerabilidad de seguridad, **NO cree un issue público**. En su lugar, envíe un correo electrónico directamente a: {contact_email}.
 
-En su lugar, envíe un correo electrónico a {contact_email} con una descripción detallada de la vulnerabilidad. Incluya la siguiente información:
+Por favor, incluya la siguiente información en su reporte:
 
-*   **Descripción de la vulnerabilidad:** Explique claramente la vulnerabilidad y cómo se puede explotar.
-*   **Pasos para reproducir:** Proporcione instrucciones detalladas para reproducir la vulnerabilidad.  Cuanto más clara sea la información, más rápido podremos investigar y solucionar el problema.
-*   **Componentes afectados:** Indique qué componentes del proyecto se ven afectados por la vulnerabilidad.
-*   **Posible impacto:** Describa el posible impacto de la vulnerabilidad en los usuarios y el sistema.
-*   **Información de contacto:** Incluya su nombre y dirección de correo electrónico para que podamos ponernos en contacto con usted si necesitamos más información.
+*   Una descripción detallada de la vulnerabilidad.
+*   Pasos para reproducir la vulnerabilidad (si es posible).
+*   Versión del software afectado.
+*   Posibles impactos de la vulnerabilidad.
+*   Sugerencias para la mitigación o solución (si las tiene).
 
-Nos comprometemos a responder a su informe en un plazo de 72 horas.  Trabajaremos diligentemente para investigar la vulnerabilidad y desarrollar una solución.
+Nos comprometemos a responder a su reporte dentro de un plazo de [X días/horas] para acusar recibo del informe y proporcionar una estimación del tiempo necesario para investigar y corregir la vulnerabilidad.
 
-**Proceso de Divulgación Responsable:**  Una vez que hayamos confirmado la vulnerabilidad y desarrollado una solución, trabajaremos con usted para coordinar la divulgación de la información.  Preferimos divulgar la información de forma pública una vez que se haya publicado una corrección y los usuarios tengan la oportunidad de actualizar sus sistemas.  Agradecemos su cooperación en este proceso.
+Practicamos la divulgación responsable.  No divulgaremos públicamente la vulnerabilidad hasta que se haya investigado, parcheado y probado adecuadamente.  Trabajaremos con usted para coordinar la divulgación pública una vez que la vulnerabilidad haya sido abordada.  Agradecemos su cooperación y discreción.
 
 ## Prácticas de Seguridad
 
-A continuación, se presentan algunas prácticas de seguridad importantes que seguimos en el proyecto {project_name}:
+Implementamos las siguientes prácticas de seguridad para proteger el proyecto {project_name} y sus usuarios:
 
 ### 3.1 Gestión de Dependencias
 
-Es crucial gestionar las dependencias de forma segura para evitar la introducción de vulnerabilidades a través de bibliotecas de terceros.
+Es crucial gestionar las dependencias de manera segura para evitar vulnerabilidades introducidas por bibliotecas de terceros.
 
-*   **Verificación de Dependencias:**  Utilizamos herramientas como `pip-audit` (para Python) y `npm audit` (para Node.js) para verificar si hay vulnerabilidades conocidas en nuestras dependencias.
+*   **Verificación de Dependencias:** Use herramientas como `pip-audit` (para Python) o `npm audit` (para Node.js) para escanear sus dependencias en busca de vulnerabilidades conocidas.
 
     ```bash
-    # Python
-    pip install pip-audit
+    # Ejemplo con pip-audit
     pip-audit
+    ```
 
-    # Node.js
+    ```bash
+    # Ejemplo con npm audit
     npm audit
     ```
 
-*   **Mantenimiento Actualizado:**  Mantenemos nuestras dependencias actualizadas a las últimas versiones para beneficiarnos de las correcciones de seguridad más recientes.
+*   **Mantenimiento Actualizado:** Mantenga sus dependencias actualizadas a las últimas versiones para corregir vulnerabilidades conocidas.
 
     ```bash
-    # Python
+    # Ejemplo con pip
     pip install --upgrade -r requirements.txt
+    ```
 
-    # Node.js
+    ```bash
+    # Ejemplo con npm
     npm update
     ```
 
-*   **Alertas de Vulnerabilidades:**  Configuramos alertas de vulnerabilidades en nuestros repositorios de código (por ejemplo, a través de GitHub Dependabot) para ser notificados cuando se detectan nuevas vulnerabilidades en nuestras dependencias.
+*   **Alertas de Vulnerabilidades:** Configure alertas de vulnerabilidades en plataformas como GitHub para recibir notificaciones cuando se detecten vulnerabilidades en sus dependencias.  GitHub Dependency Graph y Dependabot pueden ayudar con esto.
 
 ### 3.2 Manejo de Secretos
 
-El manejo adecuado de secretos es esencial para proteger la información confidencial.
+El manejo seguro de secretos es fundamental para prevenir la exposición de información sensible.
 
-*   **NO Hardcodear Secretos:**  Nunca incluya secretos (contraseñas, claves API, etc.) directamente en el código fuente.
-
-*   **Variables de Entorno:**  Utilice variables de entorno para almacenar secretos y acceder a ellos en su aplicación.
+*   **No Hardcodear Secretos:** NUNCA incluya contraseñas, claves API u otra información sensible directamente en el código.
 
     ```python
-    # Inseguro:
-    api_key = "clave_secreta"
+    # INSEGURO: Clave API hardcodeada
+    api_key = "YOUR_API_KEY"
 
-    # Seguro:
+    # SEGURO: Usar variables de entorno
     import os
     api_key = os.environ.get("API_KEY")
     ```
 
-*   **.env en .gitignore:**  Si utiliza archivos `.env` para almacenar variables de entorno localmente, asegúrese de agregarlos a su archivo `.gitignore` para evitar que se suban al repositorio.
+*   **Variables de Entorno:** Use variables de entorno para almacenar información sensible y acceder a ella en tiempo de ejecución.
 
-*   **Herramientas de Detección de Leaks:**  Utilice herramientas de detección de leaks (como `git-secrets` o `truffleHog`) para buscar secretos expuestos accidentalmente en su historial de Git.
+*   **.env en .gitignore:** Incluya el archivo `.env` (si lo usa para desarrollo local) en el archivo `.gitignore` para evitar que se suba al repositorio.
+
+*   **Herramientas de Detección de Leaks:** Use herramientas como `git-secrets` o `trufflehog` para escanear el repositorio en busca de posibles fugas de secretos.
 
 ### 3.3 Validación de Entrada
 
-La validación de entrada es fundamental para prevenir ataques de inyección y otros tipos de vulnerabilidades.
+Validar la entrada del usuario es crucial para prevenir ataques de inyección y otros problemas de seguridad.
 
-*   **Validar Entrada de Usuario:**  Siempre valide y limpie la entrada de usuario antes de utilizarla en su aplicación.
+*   **Validar Entrada:** Siempre valide y limpie la entrada del usuario antes de usarla.
 
     ```python
-    # Inseguro:
-    nombre = input("Ingrese su nombre: ")
-    # ... usar nombre directamente en una consulta SQL ...
+    # INSEGURO: Sin validación de entrada
+    user_input = request.args.get('input')
+    # Ejecuta comando directamente con la entrada del usuario (VULNERABLE A INYECCIÓN DE COMANDOS)
+    os.system("echo " + user_input)
 
-    # Seguro:
+    # SEGURO: Validar y limpiar la entrada
     import re
-    nombre = input("Ingrese su nombre: ")
-    if re.match(r"^[a-zA-Z]+$", nombre):
-        # ... usar nombre en la consulta SQL ...
+    user_input = request.args.get('input')
+    if re.match("^[a-zA-Z0-9]*$", user_input): # Permitir solo alfanumérico
+        os.system("echo " + user_input)
     else:
-        print("Nombre inválido")
+        print("Entrada inválida")
     ```
 
-*   **Prevenir Inyección:**  Utilice consultas parametrizadas o ORMs (Object-Relational Mappers) para prevenir ataques de inyección SQL.
-
-    ```python
-    # Inseguro:
-    usuario = input("Usuario: ")
-    clave = input("Clave: ")
-    consulta = f"SELECT * FROM usuarios WHERE usuario = '{usuario}' AND clave = '{clave}'"
-    # ... ejecutar consulta ...
-
-    # Seguro:
-    import sqlite3
-    conexion = sqlite3.connect("basededatos.db")
-    cursor = conexion.cursor()
-    usuario = input("Usuario: ")
-    clave = input("Clave: ")
-    consulta = "SELECT * FROM usuarios WHERE usuario = ? AND clave = ?"
-    cursor.execute(consulta, (usuario, clave))
-    # ... procesar resultados ...
-    conexion.close()
-    ```
+*   **Prevenir Inyección:** Use parametrización o escaping para prevenir ataques de inyección SQL, inyección de comandos y otros tipos de inyección.
 
 ### 3.4 Gestión de Acceso
 
-Una gestión de acceso adecuada ayuda a limitar el impacto de posibles brechas de seguridad.
+La gestión adecuada del acceso es esencial para proteger los recursos del proyecto.
 
-*   **Principio de Mínimo Privilegio:**  Asigne a los usuarios y procesos solo los permisos mínimos necesarios para realizar sus tareas.
+*   **Principio de Mínimo Privilegio:** Otorgue a los usuarios solo los permisos necesarios para realizar sus tareas.
 
-*   **SSH Keys vs HTTPS:**  Utilice SSH keys para autenticar usuarios en lugar de contraseñas siempre que sea posible.  Asegúrese de que su sitio web utilice HTTPS para cifrar la comunicación entre el cliente y el servidor.
+*   **SSH Keys vs HTTPS:** Use SSH keys para el acceso al repositorio en lugar de contraseñas (HTTPS) siempre que sea posible.
 
-*   **Permisos de Archivos:**  Establezca permisos de archivos adecuados para proteger la información confidencial.
+*   **Permisos de Archivos:** Establezca permisos de archivos adecuados para proteger la información sensible.
 
-## Seguridad en CI/CD
+## 4. Seguridad en CI/CD
 
-La seguridad en la integración continua y la entrega continua (CI/CD) es crucial para automatizar la seguridad en el ciclo de vida del desarrollo.
+La seguridad en el proceso de Integración Continua/Entrega Continua (CI/CD) es fundamental para evitar la introducción de vulnerabilidades en el código.
 
-*   **Secrets en Jenkins/GitHub Actions:**  Utilice las funciones de gestión de secretos proporcionadas por sus herramientas de CI/CD (por ejemplo, Jenkins Credentials Plugin o GitHub Actions Secrets) para almacenar y acceder a secretos de forma segura.
+*   **Secrets en Jenkins/GitHub Actions:**  Use las funcionalidades de gestión de secretos proporcionadas por su plataforma de CI/CD (por ejemplo, "Credentials" en Jenkins o "Secrets" en GitHub Actions) para almacenar de forma segura las credenciales y otra información sensible.
 
-*   **Cómo Usar Credenciales:**  Al utilizar credenciales en sus scripts de CI/CD, asegúrese de que no se expongan accidentalmente en los registros de compilación.
+*   **Cómo usar Credentials:**  Acceda a los secretos a través de las variables de entorno que la plataforma de CI/CD proporciona.  Evite hardcodear o loguear las credenciales directamente en los scripts.
 
     ```yaml
-    # Inseguro:
-    - run: echo "API_KEY=$API_KEY"
-
-    # Seguro:
-    - run: ./mi_script.sh  # mi_script.sh utiliza la variable de entorno API_KEY sin imprimirla
+    # Ejemplo en GitHub Actions
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run tests
+        env:
+          API_KEY: ${{ secrets.API_KEY }} # Acceder al secreto API_KEY
+        run: pytest
     ```
 
-*   **No Loguear Información Sensible:**  Evite registrar información sensible (como contraseñas o claves API) en los registros de compilación.
+*   **No loguear información sensible:** Evite loguear información sensible (como contraseñas, claves API, etc.) en los registros de CI/CD.  Si necesita depurar, use logs temporales y asegúrese de eliminarlos después.
 
-## Testing de Seguridad
+## 5. Testing de Seguridad
 
-El testing de seguridad es una parte integral del proceso de desarrollo seguro.
+El testing de seguridad es una parte integral del ciclo de vida del desarrollo de software seguro.
 
-*   **Herramientas:**  Utilizamos herramientas como `bandit` (para Python), `safety` (para Python) y `pip-audit` (para Python) para realizar análisis estático de seguridad (SAST) en nuestro código.
+*   **Herramientas:** Use herramientas de análisis estático de código (SAST) y análisis dinámico de código (DAST) para identificar vulnerabilidades en su código.  Ejemplos de herramientas incluyen `bandit` (para Python), `safety` (para Python), y `pip-audit` (para Python).
 
     ```bash
-    # Bandit
-    pip install bandit
+    # Ejemplo con bandit
     bandit -r .
+    ```
 
-    # Safety
-    pip install safety
+    ```bash
+    # Ejemplo con safety
     safety check
+    ```
 
-    # pip-audit
-    pip install pip-audit
+    ```bash
+    # Ejemplo con pip-audit
     pip-audit
     ```
 
-*   **Cómo Ejecutar:**  Integramos estas herramientas en nuestro proceso de CI/CD para que se ejecuten automáticamente en cada cambio de código.
+*   **Cómo ejecutar:** Integre estas herramientas en su proceso de CI/CD para realizar pruebas de seguridad automatizadas.
 
-*   **Qué Buscar:**  Buscamos vulnerabilidades comunes, como problemas de inyección, manejo inseguro de contraseñas y configuraciones de seguridad incorrectas.
+*   **Qué buscar:** Busque vulnerabilidades comunes como inyección SQL, cross-site scripting (XSS), y desbordamiento de búfer.
 
-*   **Análisis SAST:**  El análisis SAST (Static Application Security Testing) nos permite identificar vulnerabilidades en el código fuente sin necesidad de ejecutar la aplicación.
+*   **Análisis SAST:** El Análisis Estático de Seguridad de Aplicaciones (SAST) examina el código fuente en busca de posibles vulnerabilidades sin ejecutar el programa.
 
-## Checklist de Seguridad para Contribuidores
+## 6. Checklist de Seguridad para Contribuidores
 
-Para garantizar la seguridad del proyecto, pedimos a todos los contribuyentes que sigan las siguientes pautas:
+Como contribuidor, es importante seguir estas pautas de seguridad:
 
-*   **No Incluir Secretos:**  Nunca incluya secretos (contraseñas, claves API, etc.) en su código.
-*   **No Usar `shell=True`:**  Evite usar `shell=True` en las funciones `subprocess` de Python, ya que puede ser vulnerable a ataques de inyección de comandos.
-*   **Validar Inputs:**  Siempre valide y limpie la entrada de usuario.
-*   **Sin Hardcoded Passwords:**  No incluya contraseñas codificadas en el código.
-*   **Revisar Cambios:**  Revise cuidadosamente sus cambios antes de enviarlos para detectar posibles problemas de seguridad.
+*   **No incluir secrets:** Nunca incluya contraseñas, claves API u otra información sensible en el código.
+*   **No usar shell=True:** Evite usar `shell=True` en funciones como `subprocess.run` en Python, ya que puede ser vulnerable a inyección de comandos.
+*   **Validar inputs:** Siempre valide y limpie la entrada del usuario antes de usarla.
+*   **Sin hardcoded passwords:** No incluya contraseñas hardcodeadas en el código.
+*   **Revisar cambios:** Revise cuidadosamente los cambios de código antes de fusionarlos para detectar posibles vulnerabilidades.
 
-## Vulnerabilidades Conocidas
+## 7. Vulnerabilidades Conocidas
 
-Esta sección enumera las vulnerabilidades conocidas que han sido parcheadas en versiones anteriores del proyecto.
+Esta sección lista las vulnerabilidades conocidas que han sido parcheadas en versiones anteriores de {project_name}.
 
-*   **CVE-2023-XXXX:**  Vulnerabilidad de inyección SQL en la versión 1.0.0.  Se corrigió en la versión 1.0.1.  Se recomienda actualizar a la versión 1.0.1 o posterior.
-*   **CVE-2023-YYYY:**  Vulnerabilidad de cross-site scripting (XSS) en la versión 1.1.0.  Se corrigió en la versión 1.1.1.  Se recomienda actualizar a la versión 1.1.1 o posterior.
+*   **CVE-2023-XXXX:** Vulnerabilidad de XSS en la versión 1.0.0.  Actualice a la versión 1.0.1 o superior para corregir esta vulnerabilidad.
+*   **CVE-2023-YYYY:** Vulnerabilidad de inyección SQL en la versión 1.1.0.  Actualice a la versión 1.1.1 o superior para corregir esta vulnerabilidad.
 
-## Recursos de Seguridad
+## 8. Recursos de Seguridad
 
-A continuación, se presentan algunos recursos útiles para aprender más sobre seguridad:
+Aquí hay algunos recursos adicionales que pueden ser útiles para aprender más sobre seguridad de software:
 
-*   **OWASP Top 10:**  Las 10 vulnerabilidades web más críticas.
-*   **Python Security Best Practices:**  Guía de buenas prácticas de seguridad para Python.
-*   **CWE/SANS Top 25:**  Las 25 debilidades de software más peligrosas.
+*   [OWASP Top 10](https://owasp.org/www-project-top-ten/): Una lista de las 10 vulnerabilidades web más críticas.
+*   [Python Security Best Practices](https://wiki.python.org/moin/Security):  Guía de seguridad para desarrolladores de Python.
+*   [CWE/SANS Top 25](https://cwe.mitre.org/top25/): Una lista de las 25 debilidades de software más peligrosas.
 
-## Soporte
+## 9. Soporte
 
-Si tiene alguna pregunta o inquietud sobre la seguridad del proyecto {project_name}, no dude en ponerse en contacto con nosotros.
+Si tiene alguna pregunta o inquietud sobre la seguridad de {project_name}, no dude en ponerse en contacto con nosotros.
 
-*   **Cómo Reportar:**  Envíe un correo electrónico a {contact_email} con una descripción detallada de su inquietud.
-*   **Email de Seguridad:**  {contact_email}
-*   **Contacto Directo:**  Puede ponerse en contacto con los mantenedores del proyecto directamente a través del repositorio de GitHub en {repository_url}.
+*   Para reportar vulnerabilidades, envíe un correo electrónico a: {contact_email}.
+*   Para otras consultas relacionadas con la seguridad, puede contactarnos directamente.
 ```
