@@ -1,170 +1,326 @@
 ```markdown
-# ¡Bienvenido/a al proyecto {project_name}! 👋
+# ¡Contribuyendo a {project_name}! 👋
 
-¡Gracias por tu interés en contribuir! Este proyecto es de todos y cada aporte, por pequeño que sea, es valiosísimo. Ya sea corrigiendo errores, mejorando la documentación o añadiendo nuevas funcionalidades, ¡tu ayuda es bienvenida! Si no sabes por dónde empezar, echa un vistazo a la sección de "Formas de Contribuir".
+¡Bienvenido! Nos emociona que estés interesado en contribuir a {project_name}. Tu ayuda es invaluable para mejorar este proyecto y hacerlo aún mejor. Ya sea que encuentres un bug, quieras sugerir una nueva característica o simplemente mejorar la documentación, ¡tu contribución es bienvenida!
 
-## Código de Conducta
+## Código de Conducta 🤝
 
-Nuestro proyecto se basa en el respeto y la inclusión. Nos comprometemos a proporcionar un entorno amigable y seguro para todos los contribuidores, independientemente de su origen, género, identidad de género, orientación sexual, habilidades, etnia, religión, nivel de experiencia o cualquier otra característica.
+Nuestro objetivo es crear una comunidad acogedora y respetuosa para todos. Nos comprometemos a proporcionar un entorno libre de acoso para todos, independientemente de su edad, tamaño corporal, discapacidad, etnia, identidad y expresión de género, nivel de experiencia, educación, estatus socioeconómico, nacionalidad, apariencia personal, raza, religión o identidad y orientación sexual.
 
-Esperamos que todos los participantes sean considerados y respetuosos en sus interacciones. No toleraremos ninguna forma de acoso, discriminación o comportamiento ofensivo.
+**Valores Clave:**
 
-Si presencias o experimentas alguna violación de este código de conducta, por favor, repórtalo a [email protected] (reemplaza con el email real del mantenedor). Todas las denuncias serán investigadas y se tomarán las medidas apropiadas.
+*   Respeto mutuo y cortesía.
+*   Empatía hacia otros miembros de la comunidad.
+*   Apertura a diferentes perspectivas y experiencias.
 
-## Formas de Contribuir
+No toleramos ningún tipo de acoso. Esto incluye comentarios ofensivos relacionados con los atributos mencionados anteriormente, intimidación, acoso deliberado, fotografías o grabaciones de acoso, interrupción sostenida de conversaciones, contacto físico inapropiado y atención sexual no deseada.
 
-Hay muchas formas de contribuir al proyecto {project_name}:
+Si experimentas o presencias una violación de este código de conducta, por favor, repórtalo a [email protected]. Todos los reportes serán investigados y se tomarán las medidas apropiadas.
 
-*   **Reportar Bugs:** Ayuda a identificar y corregir errores en el código.
-*   **Sugerir Features:** Propón nuevas funcionalidades para mejorar el proyecto.
-*   **Mejorar la Documentación:** Haz que la documentación sea más clara, completa y accesible.
-*   **Escribir Tests:** Asegura la calidad del código con pruebas automatizadas.
+## Formas de Contribuir ✨
+
+Hay muchas maneras de contribuir a {project_name}:
+
+*   **Reportar Bugs:** Ayuda a mejorar la estabilidad del proyecto identificando y reportando errores.
+*   **Sugerir Features:** Comparte tus ideas para nuevas funcionalidades y mejoras.
+*   **Mejorar la Documentación:** Haz que el proyecto sea más accesible y fácil de entender.
+*   **Escribir Tests:** Asegura la calidad del código con pruebas unitarias y de integración.
 *   **Responder Preguntas en Issues:** Ayuda a otros usuarios resolviendo sus dudas.
-*   **Mantener Traducciones:** Contribuye a que el proyecto sea accesible a un público más amplio traduciendo la documentación y la interfaz.
+*   **Mantener Traducciones:** Expande el alcance del proyecto a diferentes idiomas.
 
-## Reportar Bugs
+## Reportar Bugs 🐛
 
-Cuando reportes un bug, por favor, incluye la siguiente información:
+Para reportar un bug, por favor, sigue estos pasos:
 
-*   **Descripción del problema:** Explica claramente qué sucedió y qué esperabas que sucediera.
-*   **Pasos para reproducir el bug:** Proporciona instrucciones detalladas para que podamos reproducir el bug en nuestro entorno.
-*   **Entorno:** Indica el sistema operativo, la versión del lenguaje de programación y cualquier otra información relevante.
-*   **Código de error (si aplica):** Incluye el código de error completo.
+1.  **Verifica si el bug ya ha sido reportado:** Busca en los issues existentes para evitar duplicados.
+2.  **Crea un nuevo issue:** Describe el bug de la forma más clara y detallada posible.
+3.  **Incluye la siguiente información:**
+    *   Una descripción clara y concisa del bug.
+    *   Pasos para reproducir el bug.
+    *   El comportamiento esperado y el comportamiento real.
+    *   Tu entorno (sistema operativo, versión de {tech_stack}, etc.).
+    *   Cualquier información adicional que pueda ser útil.
 
-Puedes reportar bugs creando un nuevo issue en el repositorio: [issues page]({repository_url}/issues)
+**Ejemplo de Título de Issue:** "Bug: El botón 'Guardar' no funciona en el formulario de configuración"
+
+**Template de Issue (Bug Report):**
 
 ```markdown
-## Bug Report
+## Descripción del Bug
 
-**Descripción del problema:**
+[Describe el bug de forma clara y concisa]
 
-[Describe el problema aquí]
+## Pasos para Reproducir
 
-**Pasos para reproducir:**
+1.  [Paso 1]
+2.  [Paso 2]
+3.  [Paso 3]
 
-1. [Paso 1]
-2. [Paso 2]
-3. [Paso 3]
+## Comportamiento Esperado
 
-**Entorno:**
+[Describe el comportamiento que esperabas]
+
+## Comportamiento Actual
+
+[Describe el comportamiento que realmente ocurre]
+
+## Entorno
 
 *   Sistema Operativo: [Ejemplo: Windows 10]
 *   Versión de {tech_stack}: [Ejemplo: Python 3.9]
+*   Otros: [Cualquier información adicional relevante]
 
-**Código de error (si aplica):**
+## Información Adicional
 
+[Cualquier información adicional que pueda ser útil]
 ```
-[Pega el código de error aquí]
-```
-```
 
-## Sugerir Features
+## Sugerir Features 💡
 
-Cuando sugieras una nueva feature, por favor, incluye la siguiente información:
+Para sugerir una nueva característica, por favor, sigue estos pasos:
 
-*   **Descripción de la feature:** Explica claramente qué hace la nueva feature.
-*   **Caso de uso:** Describe cómo se utilizaría la nueva feature.
-*   **Ejemplos:** Proporciona ejemplos concretos de cómo funcionaría la nueva feature.
+1.  **Verifica si la característica ya ha sido sugerida:** Busca en los issues existentes para evitar duplicados.
+2.  **Crea un nuevo issue:** Describe la característica de la forma más clara y detallada posible.
+3.  **Incluye la siguiente información:**
+    *   Una descripción clara y concisa de la característica.
+    *   El caso de uso de la característica.
+    *   Ejemplos de cómo se podría usar la característica.
+    *   Cualquier beneficio que la característica pueda aportar.
 
-Puedes sugerir features creando un nuevo issue en el repositorio: [issues page]({repository_url}/issues)
+**Ejemplo de Título de Issue:** "Feature Request: Agregar soporte para la autenticación de dos factores"
+
+**Template de Issue (Feature Request):**
 
 ```markdown
-## Feature Request
+## Descripción de la Característica
 
-**Descripción de la feature:**
+[Describe la característica de forma clara y concisa]
 
-[Describe la feature aquí]
+## Caso de Uso
 
-**Caso de uso:**
+[Describe cómo se usaría la característica]
 
-[Describe cómo se utilizaría la feature]
+## Ejemplos
 
-**Ejemplos:**
+[Proporciona ejemplos de cómo se podría usar la característica]
 
-[Proporciona ejemplos concretos de cómo funcionaría la feature]
+## Beneficios
+
+[Describe los beneficios que la característica aportaría]
+
+## Información Adicional
+
+[Cualquier información adicional relevante]
 ```
 
-## Configuración de Desarrollo
+## Configuración de Desarrollo ⚙️
 
-Para contribuir al proyecto, necesitarás configurar un entorno de desarrollo local.
+Para configurar tu entorno de desarrollo, sigue estos pasos:
 
 1.  **Fork el repositorio:** Haz clic en el botón "Fork" en la parte superior derecha de la página del repositorio en GitHub.
-2.  **Clona tu fork:** Clona el repositorio a tu máquina local:
+2.  **Clona tu fork:**
 
     ```bash
-    git clone https://github.com/tu-usuario/{project_name}.git
+    git clone {repository_url}
     cd {project_name}
     ```
-3.  **Instala las dependencias de desarrollo:** Dependiendo del stack tecnológico, el proceso varía.  Aquí hay ejemplos:
 
-    *   **Python:**
+3.  **Instala las dependencias de desarrollo:**
 
-        ```bash
-        python -m venv .venv
-        source .venv/bin/activate  # En Linux/macOS
-        .venv/Scripts/activate  # En Windows
-        pip install -r requirements-dev.txt # o requirements.txt si no hay un archivo separado para dev
-        ```
+    ```bash
+    # Ejemplo para un proyecto Python
+    pip install -r requirements-dev.txt
 
-    *   **JavaScript/TypeScript (con npm):**
+    # Ejemplo para un proyecto JavaScript/TypeScript
+    npm install
+    ```
 
-        ```bash
-        npm install
-        ```
+4.  **Corre los tests localmente:** (Ver sección de Testing)
 
-    *   **JavaScript/TypeScript (con yarn):**
+**Herramientas Recomendadas:**
 
-        ```bash
-        yarn install
-        ```
+*   **Editor de Código:** VS Code, Sublime Text, Atom
+*   **Extensiones:** ESLint, Prettier (para JavaScript/TypeScript), Python extension (para Python)
+*   **Entorno Virtual:** virtualenv, conda (para Python)
 
-4.  **Corre los tests localmente:** (Ver sección "Testing" para más detalles)
-5.  **Herramientas recomendadas:** Recomendamos utilizar un IDE como VS Code, PyCharm o IntelliJ IDEA. VS Code ofrece excelentes extensiones para {tech_stack}.
+**Setup del IDE (VS Code):**
 
-## Flujo de Trabajo: Fork → Branch → PR
+1.  Instala las extensiones recomendadas.
+2.  Configura ESLint y Prettier para que se ejecuten al guardar el archivo.
+3.  Configura un entorno virtual para aislar las dependencias del proyecto.
 
-El flujo de trabajo recomendado para contribuir es el siguiente:
+## Flujo de Trabajo: Fork → Branch → PR 🌳
 
-1.  **Fork el repositorio** (ya hecho en la sección anterior).
-2.  **Clona tu fork** (ya hecho en la sección anterior).
+Para contribuir con código, sigue este flujo de trabajo:
+
+1.  **Fork el repositorio:** (Ya realizado en la configuración)
+2.  **Clona tu fork:** (Ya realizado en la configuración)
 3.  **Crea una rama con un nombre descriptivo:**
 
     ```bash
-    git checkout -b feature/nueva-funcionalidad
+    git checkout -b feature/nueva-caracteristica
+    # o
+    git checkout -b fix/correccion-bug
     ```
 
-    o
-
-    ```bash
-    git checkout -b fix/correccion-de-bug
-    ```
-4.  **Haz tus cambios:** Implementa la nueva funcionalidad o corrige el bug.
-5.  **Haz commits con mensajes claros:** (Ver sección "Commits y Mensajes" para más detalles)
+4.  **Haz tus cambios:** Implementa la nueva característica o corrige el bug.
+5.  **Haz commits con mensajes claros y concisos:**
 
     ```bash
     git add .
-    git commit -m "feat: Agrega nueva funcionalidad"
+    git commit -m "feat: Agrega soporte para la autenticación de dos factores"
     ```
+
 6.  **Sube tu rama a tu fork:**
 
     ```bash
-    git push origin feature/nueva-funcionalidad
+    git push origin feature/nueva-caracteristica
     ```
-7.  **Crea un Pull Request:** Ve a la página de tu fork en GitHub y haz clic en el botón "Compare & pull request".
-8.  **Responde a las revisiones:** Atiende el feedback de los revisores y realiza los cambios necesarios.
-9.  **Merge:** Una vez que el Pull Request sea aprobado, será mergeado a la rama principal.
 
-## Guía de Estilo de Código
+7.  **Crea un Pull Request:** Ve a tu fork en GitHub y haz clic en el botón "Compare & pull request".
+8.  **Responde a las revisiones:** Implementa los cambios sugeridos por los revisores.
+9.  **¡Merge!:** Una vez que tu Pull Request sea aprobado, será mergeado al branch principal.
 
-Para mantener la consistencia del código, te pedimos que sigas las siguientes guías de estilo:
+## Guía de Estilo de Código 🎨
 
-*   **Python:**
-    *   Sigue las convenciones de PEP 8: [https://www.python.org/dev/peps/pep-0008/](https://www.python.org/dev/peps/pep-0008/)
-    *   Utiliza type hints para mejorar la legibilidad del código.
-    *   Escribe docstrings para documentar las funciones y clases.
+Es importante seguir una guía de estilo de código consistente para mantener la calidad del proyecto.
+
+**Python:**
+
+*   Sigue las convenciones de PEP 8.
+*   Utiliza type hints para mejorar la legibilidad y la mantenibilidad del código.
+*   Escribe docstrings para documentar las funciones y las clases.
+
+```python
+# Ejemplo de código bueno
+def suma(a: int, b: int) -> int:
+    """
+    Suma dos números enteros.
+
+    Args:
+        a: El primer número.
+        b: El segundo número.
+
+    Returns:
+        La suma de a y b.
+    """
+    return a + b
+
+# Ejemplo de código malo
+def suma(a,b):
+    return a+b
+```
+
+**JavaScript/TypeScript:**
+
+*   Utiliza ESLint para linting y Prettier para formateo.
+*   Sigue las convenciones de naming del proyecto.
+*   Escribe comentarios claros y concisos.
+
+```javascript
+// Ejemplo de código bueno
+const nombreUsuario = "Juan Pérez";
+
+function saludarUsuario(nombre: string): string {
+  return `Hola, ${nombre}!`;
+}
+
+// Ejemplo de código malo
+var a = "Juan Pérez";
+
+function b(c) {
+  return "Hola, " + c + "!";
+}
+```
+
+## Testing ✅
+
+Utilizamos `pytest` (ejemplo) para realizar pruebas en {project_name}.
+
+*   **Para correr los tests:**
+
+    ```bash
+    pytest
+    ```
+
+*   **Cobertura esperada:** Nos esforzamos por mantener una cobertura de al menos el 80%.
+*   **Cómo escribir tests:** Escribe tests unitarios para cada función y clase.  Asegúrate de que los tests cubran todos los casos de uso posibles.
+*   **Ejemplo de test:**
 
     ```python
-    # Ejemplo de código bueno
+    # Ejemplo de test en Python (con pytest)
+    def test_suma():
+        assert suma(2, 3) == 5
+        assert suma(-1, 1) == 0
+        assert suma(0, 0) == 0
+    ```
+
+## Commits y Mensajes 📝
+
+Utilizamos Conventional Commits para mantener un historial de commits limpio y consistente.
+
+*   **Tipos:**
+    *   `feat`: Agrega una nueva característica.
+    *   `fix`: Corrige un bug.
+    *   `docs`: Cambios en la documentación.
+    *   `style`: Cambios en el estilo del código (formato, linting, etc.).
+    *   `refactor`: Refactorización del código.
+    *   `test`: Agrega o modifica tests.
+    *   `chore`: Tareas de mantenimiento.
+
+*   **Ejemplos de mensajes buenos:**
+
+    ```
+    feat: Agrega soporte para la autenticación de dos factores
+    fix: Corrige un bug en el formulario de configuración
+    docs: Actualiza la documentación para la nueva versión
+    ```
+
+*   **Commits atómicos:** Haz commits pequeños y enfocados en una sola tarea.
+*   **Importancia:** Un historial de commits limpio facilita la revisión del código y la comprensión de los cambios.
+
+## Pull Request Process 📤
+
+1.  **Asegúrate de estar actualizado con la rama principal:**
+
+    ```bash
+    git checkout {main_branch}
+    git pull origin {main_branch}
+    git checkout tu-rama
+    git merge {main_branch}
+    ```
+
+2.  **Incluye una descripción clara y concisa del Pull Request:** Describe los cambios que has realizado y por qué.
+3.  **Referencia los issues relacionados:** Utiliza `#issue-number` para referenciar los issues que tu Pull Request resuelve.
+4.  **Responde al feedback:** Implementa los cambios sugeridos por los revisores.
+5.  **Sé paciente:** La revisión del código puede tomar tiempo.
+
+**Tips para un Pull Request exitoso:**
+
+*   Sigue la guía de estilo de código.
+*   Escribe tests unitarios para tu código.
+*   Haz commits pequeños y enfocados.
+*   Escribe mensajes de commit claros y concisos.
+*   Responde al feedback de los revisores.
+
+## Revisión de Código 👀
+
+La revisión de código es un proceso importante para asegurar la calidad del proyecto.
+
+*   **Criterios de aceptación:** El código debe ser claro, conciso, bien documentado y seguir la guía de estilo.
+*   **Qué busca el revisor:** El revisor buscará bugs, errores de diseño, problemas de rendimiento y oportunidades de mejora.
+*   **Cómo recibir feedback:** Agradece el feedback y trata de entender las sugerencias del revisor.
+*   **Cómo hacer follow-up:** Implementa los cambios sugeridos por el revisor y responde a sus preguntas.
+
+## Documentación 📝
+
+Es importante documentar todos los cambios que realices en el código.
+
+*   **Cómo documentar cambios:** Escribe docstrings para las funciones y las clases.
+*   **Dónde documentar:** Documenta los cambios en el código, en la documentación del proyecto y en el README.
+*   **Ejemplos en docstrings:**
+
+    ```python
     def suma(a: int, b: int) -> int:
         """
         Suma dos números enteros.
@@ -177,138 +333,26 @@ Para mantener la consistencia del código, te pedimos que sigas las siguientes g
             La suma de a y b.
         """
         return a + b
-
-    # Ejemplo de código malo
-    def suma(a, b):
-        return a+b
     ```
 
-*   **JavaScript/TypeScript:**
-    *   Utiliza ESLint con la configuración del proyecto para linting.
-    *   Utiliza Prettier para formatear el código.
-    *   Sigue las convenciones de nomenclatura del proyecto.
+*   **README updates:** Actualiza el README con cualquier cambio importante en el proyecto.
 
-    ```javascript
-    // Ejemplo de código bueno
-    const nombreUsuario = "Juan Pérez"; // camelCase
+## Reconocimiento 🏆
 
-    // Ejemplo de código malo
-    const NombreUsuario = "Juan Pérez"; // PascalCase
-    ```
+Agradecemos a todos los que contribuyen a {project_name}.
 
-*   **Otros lenguajes:** Sigue las convenciones del lenguaje y las guías de estilo específicas del proyecto.
+*   **Cómo se reconoce a los contribuidores:** Los contribuidores son mencionados en el README y en las notas de lanzamiento.
+*   **Lista de contribuidores:** (Se actualizará automáticamente con las contribuciones)
+*   **Credits en release notes:** Los contribuidores son mencionados en las notas de lanzamiento de cada nueva versión.
 
-## Testing
+## Contacto y Preguntas ❓
 
-Utilizamos [pytest (reemplaza si usas otro)] como framework de testing.
+Si tienes alguna pregunta, no dudes en contactarnos.
 
-Para correr los tests, ejecuta el siguiente comando:
+*   **Email:** [email protected]
+*   **Discord/Slack:** [Enlace a la comunidad]
+*   **Discussions en GitHub:** [Enlace a las discussions]
+*   **Email del mantenedor:** [email protected]
 
-```bash
-pytest
-```
-
-Esperamos que el código tenga una cobertura de al menos el 80%.
-
-Para escribir tests, sigue los siguientes ejemplos:
-
-```python
-# Ejemplo de test en Python (pytest)
-def test_suma():
-    assert suma(2, 3) == 5
-```
-
-## Commits y Mensajes
-
-Utilizamos Conventional Commits: [https://www.conventionalcommits.org/en/v1.0.0/](https://www.conventionalcommits.org/en/v1.0.0/)
-
-Los tipos de commits más comunes son:
-
-*   `feat`: Agrega una nueva funcionalidad.
-*   `fix`: Corrige un bug.
-*   `docs`: Cambios en la documentación.
-*   `style`: Cambios en el estilo del código (sin afectar la funcionalidad).
-*   `refactor`: Refactorización del código (sin afectar la funcionalidad).
-*   `test`: Agrega o modifica tests.
-*   `chore`: Tareas de mantenimiento.
-
-Ejemplos de mensajes de commit:
-
-*   `feat: Agrega soporte para múltiples idiomas`
-*   `fix: Corrige error al guardar datos`
-*   `docs: Actualiza la documentación de la API`
-
-Es importante hacer commits atómicos, es decir, que cada commit represente un cambio lógico y completo. Esto facilita la revisión del código y la resolución de problemas.
-
-## Pull Request Process
-
-Antes de crear un Pull Request, asegúrate de:
-
-*   Estar actualizado con la rama {main_branch} (main/master):
-
-    ```bash
-    git fetch origin {main_branch}
-    git rebase origin/{main_branch}
-    ```
-*   Incluir una descripción clara del cambio que estás proponiendo.
-*   Referenciar los issues relacionados.
-*   Responder al feedback de los revisores.
-*   Ser paciente con el proceso de revisión.
-
-Tips para un Pull Request exitoso:
-
-*   Escribe código limpio y legible.
-*   Asegúrate de que los tests pasen.
-*   Sigue las guías de estilo del código.
-*   Escribe mensajes de commit claros y descriptivos.
-
-## Revisión de Código
-
-Los revisores buscarán lo siguiente:
-
-*   Que el código sea correcto y funcional.
-*   Que el código sea legible y fácil de entender.
-*   Que el código siga las guías de estilo del proyecto.
-*   Que los tests pasen.
-*   Que la documentación esté actualizada.
-
-Recibe el feedback de los revisores con una mentalidad abierta y constructiva. Utiliza el feedback para mejorar tu código y aprender nuevas técnicas.
-
-## Documentación
-
-Documenta tus cambios en el código utilizando docstrings y comentarios. Actualiza la documentación del proyecto (README, etc.) si es necesario.
-
-```python
-# Ejemplo de docstring
-def saludar(nombre: str) -> str:
-    """
-    Saluda a una persona.
-
-    Args:
-        nombre: El nombre de la persona.
-
-    Returns:
-        Un saludo personalizado.
-    """
-    return f"Hola, {nombre}!"
-```
-
-## Reconocimiento
-
-Valoramos mucho las contribuciones de la comunidad. Reconoceremos a los contribuidores de las siguientes maneras:
-
-*   Mencionándolos en las notas de la versión.
-*   Añadiéndolos a la lista de contribuidores en el README.
-
-Lista de contribuidores: [Enlace a la lista de contribuidores (si existe)]
-
-## Contacto y Preguntas
-
-Si tienes alguna pregunta o necesitas ayuda, puedes contactarnos a través de:
-
-*   Email: [email protected] (reemplaza con el email real del mantenedor)
-*   Discord/Slack community: [Enlace a la comunidad]
-*   Discussions en GitHub: [Enlace a las discussions]
-
-¡Gracias nuevamente por tu interés en contribuir!
+¡Gracias por contribuir a {project_name}!
 ```
